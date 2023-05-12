@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block body %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>{{card['name']}}</h2>
+          <ol>
+            <li>{{card['vertical']}}</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+
+                <div class="swiper-slide">
+                  <img src={{card['photo']}} alt="" onerror="this.src='/static/images.png';">
+                </div>
+                
+
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+                
+                <ul>
+                  <li><strong>Name</strong>: {{card['name']}}</li>
+                  <li><strong>Year</strong>: {{card['year']}}</li>
+                  <li><strong>Vertical</strong>: {{card['vertical']}}</li>
+                  {% if card['linkedinProfile'] %}
+                    <li><strong>Linked In Profile</strong>: <a href={{card['linkedinProfile']}}>{{card['linkedinProfile']}}</a></li>
+                  {% endif %}
+                  {% if card['instagramProfile'] %}
+                    <li><strong>Instagram Profile</strong>: <a href={{card['instagramProfile']}}>{{card['instagramProfile']}}</a></li>
+                  {% endif %}
+                  {% if card['facebookProfile'] %}
+                    <li><strong>Facebook Profile</strong>: <a href={{card['facebookProfile']}}>{{card['facebookProfile']}}</a></li>
+                  {% endif %}
+                </ul>
+              </div>
+              <div class="container btn"><a href="/edit/{{card['S_no']}}"><h2>Edit Profile</h2></a></div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}
